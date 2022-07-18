@@ -1,5 +1,5 @@
 """
-ASGI config for taxhelpcare project.
+ASGI config for website project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
