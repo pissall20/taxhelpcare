@@ -15,9 +15,13 @@
 
     {% block head_favicon %}
     <!-- Favicons -->
-    <link href="{% static 'website/img/logo/favicon.png' %}" rel="icon">
-    <link href="{% static 'website/img/logo/favicon.png' %}" rel="apple-touch-icon">
+    <link href="{% static 'website/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'website/img/favicon.png' %}" rel="apple-touch-icon">
     {% endblock head_favicon %}
+
+    {% block javascript %}
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
+    {% endblock javascript %}
 
     {% block fonts %}
     <!-- Google Fonts -->
@@ -59,8 +63,6 @@
                         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                         <li><a class="nav-link scrollto" href="#about">About</a></li>
                         <li><a class="nav-link scrollto" href="#services">Services</a></li>
-<!--                        <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>-->
-<!--                        <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>-->
                         <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
                                 <li><a href="#">Drop Down 1</a></li>
@@ -84,7 +86,7 @@
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav><!-- .navbar -->
 
-                <a href="#about" class="get-started-btn scrollto">Get Started</a>
+                <a href="#contact" class="get-started-btn scrollto">Get Started</a>
             </div>
         </div>
 
@@ -100,7 +102,7 @@
 <!-- ======= Footer ======= -->
 <footer id="footer">
     <div class="container">
-        <h3>KnightOne</h3>
+        <h3>TaxCareHelp</h3>
         <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi
             placeat.</p>
         <div class="social-links">
@@ -111,14 +113,7 @@
             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
         </div>
         <div class="copyright">
-            &copy; Copyright <strong><span>KnightOne</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            &copy; Copyright <strong><span>TaxCareHelp</span></strong>. All Rights Reserved
         </div>
     </div>
 </footer><!-- End Footer -->
@@ -127,37 +122,25 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
+{% block footer_js %}
 <!-- Vendor JS Files -->
-<script src="assets/vendor/purecounter/purecounter.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
+{% block footer_vendor_js %}
+<script src="{% static 'website/vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'website/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'website/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'website/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'website/vendor/swiper/swiper-bundle.min.js' %}"></script>
+{% endblock footer_vendor_js %}
 
 <!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+{% block footer_site_js %}
+<script src="{% static 'website/js/main.js' %}"></script>
+{% endblock footer_site_js %}
 
- {% block footer_js %}
-  <!-- Vendor JS Files -->
-  {% block footer_vendor_js %}
-  <script src="{% static 'website/vendor/purecounter/purecounter.js' %}"></script>
-  <script src="{% static 'website/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'website/vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'website/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'website/vendor/swiper/swiper-bundle.min.js' %}"></script>
-<!--  <script src="{% static 'website/vendor/php-email-form/validate.js' %}"></script>-->
-  {% endblock footer_vendor_js %}
+{% block page_js %}
+{% endblock page_js %}
 
-  <!-- Template Main JS File -->
-  {% block footer_site_js %}
-  <script src="{% static 'website/js/main.js' %}"></script>
-  {% endblock footer_site_js %}
-
-  {% block page_js %}
-  {% endblock page_js %}
-
-  {% endblock footer_js %}
+{% endblock footer_js %}
 </body>
 
 </html>

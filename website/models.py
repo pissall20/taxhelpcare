@@ -8,9 +8,9 @@ from phonenumber_field.modelfields import PhoneNumberField
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=150)
-    address = models.TextField(max_length=2000)
+    address = models.TextField(max_length=500)
     city = models.CharField(max_length=100)
-    number = PhoneNumberField(unique=True, null=False, blank=False)
+    phone_number = PhoneNumberField()
 
     def __str__(self):
         return self.email

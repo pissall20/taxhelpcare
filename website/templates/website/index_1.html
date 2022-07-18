@@ -9,10 +9,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-8">
-                <h1>Welcome to the Orlando Tax Care Help</h1>
+                <h1>Welcome to the Tax Care Help</h1>
                 <h2>We have funds and options available for delinquent taxes on a first come, first served basis and
                     assistance can only be given to one property per Florida homeowner.</h2>
-                          <a href="https://vimeo.com/470210023" class="glightbox play-btn mb-4"></a>
+                <a href="https://vimeo.com/470210023" class="glightbox play-btn mb-4"></a>
             </div>
         </div>
     </div>
@@ -175,70 +175,11 @@
                     </div>
                 </div>
                 <div class="image col-lg-6 order-1 order-lg-2"
-                     style='background-image: url("assets/img/features.jpg");'></div>
+                     style='background-image: {% static "website/img/img/features.jpg");'></div>
             </div>
 
         </div>
     </section><!-- End Features Section -->
-
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-        <div class="container">
-
-            <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <div class="client-logo">
-                        <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section><!-- End Clients Section -->
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
@@ -346,7 +287,7 @@
                 </div>
 
                 <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
-                     style='background-image: url("assets/img/faq.jpg");'>&nbsp;
+                     style="background-image: {% static 'website/img/faq.jpg');">&nbsp;
                 </div>
             </div>
 
@@ -359,16 +300,16 @@
 
             <div class="section-title">
                 <h2>Contact</h2>
-                <p>To see if you qualify give us a call today at (407) 731-0215 or fill out
+                <p>To see if you qualify give us a call or fill out
                     the form below to have one of our representatives give you a call.</p>
             </div>
         </div>
 
-        <div>
-            <iframe style="border:0; width: 100%; height: 350px;"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
-                    frameborder="0" allowfullscreen></iframe>
-        </div>
+<!--        <div>-->
+<!--            <iframe style="border:0; width: 100%; height: 350px;"-->
+<!--                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"-->
+<!--                    frameborder="0" allowfullscreen></iframe>-->
+<!--        </div>-->
 
         <div class="container">
 
@@ -385,13 +326,13 @@
                         <div class="email">
                             <i class="ri-mail-line"></i>
                             <h4>Email:</h4>
-                            <p>info@example.com</p>
+                            <p>support@orlandotaxcarehelp.com</p>
                         </div>
 
                         <div class="phone">
                             <i class="ri-phone-line"></i>
                             <h4>Call:</h4>
-                            <p>+1 5589 55488 55s</p>
+                            <p>(407) 731-0215</p>
                         </div>
 
                     </div>
@@ -400,32 +341,42 @@
 
                 <div class="col-lg-8 mt-5 mt-lg-0">
 
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="" method="post" role="form" class="php-email-form">
+                        {% csrf_token %}
                         <div class="row">
+                            {{ contact_form.non_field_errors }}
                             <div class="col-md-6 form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                       required>
+                                {{ contact_form.name.errors }}
+                                {{ contact_form.name }}
                             </div>
                             <div class="col-md-6 form-group mt-3 mt-md-0">
-                                <input type="email" class="form-control" name="email" id="email"
-                                       placeholder="Your Email" required>
+                                {{ contact_form.email.errors }}
+                                {{ contact_form.email }}
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                                   required>
+                            {{ contact_form.address.errors }}
+                            {{ contact_form.address }}
                         </div>
-                        <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Message"
-                                      required></textarea>
+                        <div class="row">
+                            {{ contact_form.non_field_errors }}
+                            <div class="col-md-6 form-group">
+                                {{ contact_form.city.errors }}
+                                {{ contact_form.city }}
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                {{ contact_form.phone_number.errors }}
+                                {{ contact_form.phone_number }}
+                            </div>
                         </div>
                         <div class="my-3">
                             <div class="loading">Loading</div>
-                            <div class="error-message"></div>
+                            <div class="error-message">Oops! There was an issue. Please mail us at
+                                    support@gmail.com</div>
                             <div class="sent-message">Your message has been sent. Thank you!</div>
                         </div>
                         <div class="text-center">
-                            <button type="submit">Send Message</button>
+                            <button type="submit">Reserve my Spot!</button>
                         </div>
                     </form>
 
@@ -434,9 +385,70 @@
             </div>
 
         </div>
+
+         <div>
+                <iframe style="border:20px; width: 100%; height: 350px; padding: 40px"
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                        frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="container">
+
+        </div>
     </section><!-- End Contact Section -->
 
 </main><!-- End #main -->
+
+{% block page_js %}
+<script type='text/javascript'>
+
+  $(document).ready(function(){
+
+    // AJAX for posting
+    function contact_us() {
+        $.ajax({
+            headers: {'X-Requested-With': 'XMLHttpRequest'},
+            url : "{% url 'contact_us' %}", // the endpoint
+            type : "POST", // http method
+            data : {
+              name: $('#id_name').val(),
+              email: $('#id_email').val(),
+              address: $('#id_address').val(),
+              city: $('#id_city').val(),
+              phone_number: $('#id_phone_number').val(),
+              csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            }, // data sent with the post request
+            // handle a successful response
+            success : function(json) {
+                $('#id_name').val(''); // remove the value from the input
+                $('#id_email').val(''); // remove the value from the input
+                $('#id_address').val(''); // remove the value from the input
+                $('#id_city').val('');
+                $('#id_phone_number').val('');
+                $(".sent-message").addClass("d-block")
+            },
+
+            // handle a non-successful response
+            error : function(xhr,errmsg,err) {
+                $(".error-message").addClass("d-block")
+                $(".errorlist").addClass("d-block")
+                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+            }
+        });
+    }
+
+    // Submit post on submit
+    $('.php-email-form').on('submit', function(event){
+        event.preventDefault();
+        contact_us();
+    });
+
+})
+
+
+</script>
+
+{% endblock page_js %}
 
 
 {% endblock content %}
