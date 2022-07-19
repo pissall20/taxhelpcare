@@ -1,15 +1,14 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 
 from django.template import loader
 from django.core.mail import send_mail, BadHeaderError
-from .models import *
 from .forms import ContactForm
 
 
 # Create your views here.
 def index(request):
-    template = loader.get_template('website/index_1.html')
+    template = loader.get_template('website/index.html')
 
     contact_form = ContactForm()
     context = {
@@ -26,24 +25,27 @@ def contact(request):
             subject = "Website Inquiry"
             print(form.cleaned_data)
             body = {
-                'name': form.cleaned_data['name'],
-                'email': form.cleaned_data['email'],
-                'address': form.cleaned_data['address'],
-                'city': form.cleaned_data['city'],
-                'phone_number': form.cleaned_data['phone_number'],
+                'Name': form.cleaned_data['name'],
+                'Email': form.cleaned_data['email'],
+                'Address': form.cleaned_data['address'],
+                'City': form.cleaned_data['city'],
+                'Phone Number': str(form.cleaned_data['phone_number']),
             }
-            # message = "\n".join(body.values())
-            print(body.values())
+            email_header = "A new client is trying to contact you:"
+            message = "\n".join([email_header] + [f"{key}: {value}" for key, value in body.items()])
+            response = "Your message has been sent. Thank you!"
             try:
-                # send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
-                print("XYZ")
+                send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
             except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return HttpResponse("Your query has been sent.", status=200)
-            # return HttpResponse("Message sent successfully", status=200)
+                response = "Bad Header Sent"
+                return HttpResponse(response)
+            return HttpResponse(response, status=200)
         else:
-            print("Form invalid")
-            print(form)
-            return HttpResponse("Bad request", status=400)
+            if "phone_number" in form.errors:
+                response = 'Enter a valid phone number (e.g. (201) 555-0123) or a number with an international call prefix.'
+            else:
+                response = 'Oops! There was an issue. Please mail us at support@gmail.com'
+            return HttpResponse(response, status=403)
+
     form = ContactForm()
     return render(request, 'website/index.html', {'form': form})

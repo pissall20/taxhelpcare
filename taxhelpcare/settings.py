@@ -139,3 +139,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = #sender's email-id
 EMAIL_HOST_PASSWORD = #password associated with above email-id
 """
+
+PHONENUMBER_DB_FORMAT = "NATIONAL"
+PHONENUMBER_DEFAULT_REGION = "US"

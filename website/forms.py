@@ -1,5 +1,8 @@
 from django import forms
 from .models import Contact
+from phonenumbers import is_valid_number, is_possible_number
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
+from django.core.exceptions import ValidationError
 
 # Create your forms here.
 
@@ -19,6 +22,7 @@ class ContactForm(forms.ModelForm):
 
         widgets = {
             'Address': forms.Textarea(attrs={'rows': 8, 'cols': 40}),
+            "Phone Number": PhoneNumberPrefixWidget()
         }
 
     def __init__(self, *args, **kwargs):
