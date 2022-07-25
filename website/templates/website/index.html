@@ -11,7 +11,7 @@
             <div class="col-xl-8">
                 <h1>Welcome to the Fast Tax Help</h1>
                 <h2><p>Have deliquent taxes? We have funds and options available.</p>
-                    <p>Claim up to $20k in tax relief this-week.</p></h2>
+                    <p>Claim up to $20k in tax relief this week.</p></h2>
                 <a href="https://vimeo.com/470210023" class="glightbox play-btn mb-4"></a>
             </div>
         </div>
@@ -140,11 +140,11 @@
 
             <div class="row">
                 <div class="col-lg-9 text-center text-lg-start">
-                    <h3>Call To Action</h3>
+                    <h3>GET TAX HELP TODAY</h3>
                     <p> The number one question we’re asked... How much does it cost?</p>
                 </div>
                 <div class="col-lg-3 cta-btn-container text-center">
-                    <a class="cta-btn align-middle" href="#">Call To Action</a>
+                    <a class="cta-btn align-middle" href="#contact">GET TAX HELP TODAY</a>
                 </div>
             </div>
 
@@ -160,22 +160,22 @@
                     <div class="icon-box mt-5 mt-lg-0">
                         <i class="bi bi-bank"></i>
                         <h4>You will-not end up owing us money</h4>
-<!--                        <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>-->
+                        <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
                     </div>
                     <div class="icon-box mt-5">
                         <i class="bi bi-cash-coin"></i>
                         <h4>No hidden fees or out of pocket expenses – we’re here to HELP</h4>
-<!--                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>-->
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
                     </div>
                     <div class="icon-box mt-5">
                         <i class="bi bi-credit-card"></i>
                         <h4>You walk away <u>without</u> life-changing blemishes on your credit</h4>
-<!--                        <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>-->
+                        <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
                     </div>
                     <div class="icon-box mt-5">
                         <i class="bx bx-shield"></i>
                         <h4>You get a fresh start and additional cash for your next steps</h4>
-<!--                        <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>-->
+                        <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
                     </div>
                 </div>
                 <div class="image col-lg-6 order-1 order-lg-2"
@@ -371,6 +371,17 @@
                             <div class="col-md-6 form-group mt-3 mt-md-0">
                                 {{ contact_form.phone_number.errors }}
                                 {{ contact_form.phone_number }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            {{ contact_form.non_field_errors }}
+                            <div class="col-md-6 form-group">
+                                {{ contact_form.mortgage.errors }}
+                                {{ contact_form.mortgage }}
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                {{ contact_form.additional_liens.errors }}
+                                {{ contact_form.additional_liens }}
                             </div>
                         </div>
                         <div class="my-3">

@@ -22,7 +22,9 @@ class ContactForm(forms.ModelForm):
 
         widgets = {
             'Address': forms.Textarea(attrs={'rows': 8, 'cols': 40}),
-            "Phone Number": PhoneNumberPrefixWidget()
+            "Phone Number": PhoneNumberPrefixWidget(),
+            'Mortgage': forms.BooleanField(initial="Is there a mortgage?", show_hidden_initial=True),
+            'Additional Liens': forms.BooleanField(initial="Are there any additional liens?")
         }
 
     def __init__(self, *args, **kwargs):
