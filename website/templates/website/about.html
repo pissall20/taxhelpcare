@@ -1,0 +1,40 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>About Us</li>
+        </ol>
+        <h2>About Us</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+      <div class="container">
+        <p>
+          A small about us write-up.
+        </p>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+<script type='text/javascript'>
+
+  $(document).ready(function(){
+    $("#header").addClass("header-inner-pages");
+})
+
+</script>
+
+{% endblock content %}

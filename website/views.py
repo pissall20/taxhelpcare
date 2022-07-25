@@ -17,6 +17,13 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
+def about(request):
+    template = loader.get_template('website/about.html')
+    context = {}
+
+    return HttpResponse(template.render(context, request))
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
