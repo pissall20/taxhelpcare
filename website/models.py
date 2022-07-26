@@ -11,8 +11,8 @@ class Contact(models.Model):
     address = models.TextField(max_length=500)
     city = models.CharField(max_length=100)
     phone_number = PhoneNumberField()
-    mortgage = models.BooleanField(choices=((True, "Yes"), (False, "No")))
-    additional_liens = models.BooleanField(choices=((True, "Yes"), (False, "No")))
+    mortgage = models.CharField(max_length=10, null=True)
+    additional_liens = models.CharField(max_length=10, null=True)
 
     def __str__(self):
         return self.email

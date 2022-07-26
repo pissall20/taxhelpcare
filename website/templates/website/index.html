@@ -52,18 +52,6 @@
                     </ul>
                     <a href="{% url 'about' %}" class="btn-learn-more">Learn More</a>
                 </div>
-<!--                <div class="col-lg-6 pt-4 pt-lg-0">-->
-<!--                    <p>-->
-<!--                        This tax sale is <b><u>NOT</u></b> a fair process and we want to help.-->
-<!--                    </p>-->
-<!--                    <p>You should not be left holding tax liens and judgments–we know the Florida Tax Rules and what can-->
-<!--                        be done to help.</p>-->
-<!--                    <p>Not only will you get clarity and direction…you should be able to get some cash out of this with-->
-<!--                        assistance.</p>-->
-<!--                    <p>If you’d like to discuss how to do this quickly because the state law gives you a short window to-->
-<!--                        get this done, then reach out ASAP.</p>-->
-<!--                    <a href="#" class="btn-learn-more">Learn More</a>-->
-<!--                </div>-->
             </div>
 
         </div>
@@ -438,24 +426,33 @@
               address: $('#id_address').val(),
               city: $('#id_city').val(),
               phone_number: $('#id_phone_number').val(),
+              mortgage: $('#id_mortgage').val(),
+              additional_liens: $('#id_additional_liens').val(),
               csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
             }, // data sent with the post request
             // handle a successful response
             success : function(response) {
-                $('#id_name').val(''); // remove the value from the input
-                $('#id_email').val(''); // remove the value from the input
-                $('#id_address').val(''); // remove the value from the input
+                // remove the value from the input
+                $('#id_name').val('');
+                $('#id_email').val('');
+                $('#id_address').val('');
                 $('#id_city').val('');
                 $('#id_phone_number').val('');
+                $('#id_mortgage').val('');
+                $('#id_additional_liens').val('');
                 $(".sent-message").html(response.responseText);
                 $(".sent-message").addClass("d-block");
             },
 
             // handle a non-successful response
             error : function(response) {
-                console.log("In ERROR");
-                err_msg = response.responseText
-                $(".error-message").html(err_msg);
+                var err_msg = $.parseJSON(response.responseText);
+                var error = "";
+                $.each(err_msg, function(key, value){
+                    console.log( "Key: " + key + ", Value: " + value );
+                    error += "<p>" + value + "</p>"
+                })
+                $(".error-message").html(error);
                 $(".error-message").addClass("d-block");
             }
         });
