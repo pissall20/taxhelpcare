@@ -1332,3 +1332,6 @@ section {
 #footer .credits a:hover {
   color: #009961;
 }
+#footer .footer-bottom-list {
+  margin: 0 0 5px 0;
+}

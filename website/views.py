@@ -22,6 +22,11 @@ def about(request):
     return render(request, 'website/about.html', context)
 
 
+def privacy(request):
+    context = {}
+    return render(request, 'website/privacy-policy.html', context)
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
