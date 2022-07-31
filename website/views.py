@@ -6,6 +6,7 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
+from taxhelpcare.settings import EMAIL_HOST_USER
 
 
 # Create your views here.
@@ -54,7 +55,7 @@ def contact(request):
             message = "\n".join([email_header] + [f"{key}: {value}" for key, value in body.items()])
             response = "Your message has been sent. Thank you!"
             try:
-                send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
+                send_mail(subject, message, body.get('email'), [EMAIL_HOST_USER])
             except BadHeaderError:
                 response = "Bad Header Sent"
                 return HttpResponse(response)
