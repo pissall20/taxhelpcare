@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['142.93.193.49', 'fastaxhelp.com', '.fastaxhelp.com', 'www.fastaxhelp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
