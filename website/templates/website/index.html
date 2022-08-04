@@ -400,8 +400,9 @@
     }
 
     // Submit post on submit
-    $('.php-email-form').on('submit', function(event){
+    $('.php-email-form').off().on('submit', function(event){
         event.preventDefault();
+        event.stopPropagation();
         contact_us();
     });
 
