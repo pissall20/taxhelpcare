@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>{% block title %} Home {% endblock title %} - FASTAXHELP</title>
     {% load static %}
     {% block head_meta %}
-    <meta content="Have deliquent taxes? We have funds and options available. Claim up to $20k in tax relief this week." name="description">
+    <meta content="Have deliquent taxes? We have funds and options available. Claim up to $20k in tax relief this week."
+          name="description">
 
     <meta content="" name="keywords">
     {% endblock head_meta %}
@@ -44,6 +46,18 @@
     <link href="{% static 'website/css/style.css' %}" rel="stylesheet">
     {% endblock main_css %}
 
+    <!--    Google Analytics Tag-->
+    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLMFV2RFTT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DLMFV2RFTT');
+
+    </script>
 </head>
 
 <body>
@@ -55,12 +69,12 @@
         <div class="row justify-content-center">
             <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
 
-                <h1 class="logo me-auto me-lg-0"><a href="{% url 'index' %}">FASTAXHELP</a></h1>
+                <!--                <h1 class="logo me-auto me-lg-0"><a href="{% url 'index' %}">FASTAXHELP</a></h1>-->
 
                 <!-- Uncomment below if you prefer to use an image logo -->
 
-                <!--                <a href="{% url 'index' %}" class="logo me-auto me-lg-0"><img-->
-                <!--                        src="{% static 'website/img/orlandotaxcarelogo.png' %}" alt="" class="img-fluid"></a>-->
+                <a href="{% url 'index' %}" class="logo me-auto me-lg-0"><img
+                        src="{% static 'website/img/logo/logo-white-no-bg.png' %}" alt="" class="img-fluid"></a>
 
                 <nav id="navbar" class="navbar order-last order-lg-0">
                     <ul>
@@ -101,7 +115,8 @@
         </div>
         <div class="footer-bottom-list">
             <ul style="padding-left: inherit;">
-                <li style="display: inline;"><a href="{% url 'disclaimer' %}" class="disclaimer">Legal Disclaimer</a></li>
+                <li style="display: inline;"><a href="{% url 'disclaimer' %}" class="disclaimer">Legal Disclaimer</a>
+                </li>
                 <span style="color: #009961;"> |</span>
                 <li style="display: inline;"><a href="{% url 'privacy' %}" class="privacy">Privacy Policy</a></li>
                 <span style="color: #009961;"> |</span>
