@@ -66,7 +66,7 @@
                         Click on the green button NOW!</p>
                 </div>
                 <div class="col-lg-3 cta-btn-container text-center">
-                    <a class="cta-btn align-middle" href="#contact">GET TAX HELP TODAY</a>
+                    <a class="cta-btn align-middle" href="#contact_form">GET TAX HELP TODAY</a>
                 </div>
             </div>
 
@@ -271,7 +271,7 @@
 
                 <div class="col-lg-8 mt-5 mt-lg-0">
 
-                    <form action="" method="post" role="form" class="php-email-form">
+                    <form action="" method="post" role="form" class="php-email-form" id="contact_form">
                         {% csrf_token %}
                         <div class="row">
                             {{ contact_form.non_field_errors }}
